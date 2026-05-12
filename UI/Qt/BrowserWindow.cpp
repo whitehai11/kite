@@ -338,7 +338,7 @@ BrowserWindow::BrowserWindow(Vector<URL::URL> const& initial_urls, IsPopupWindow
     QObject::connect(m_tabs_container, &TabWidget::current_tab_changed, this, [this](int index) {
         auto* tab = m_tabs_container->tab(index);
         if (tab)
-            setWindowTitle(QString("%1 - Ladybird").arg(tab->title()));
+            setWindowTitle(QString("%1 - KITE").arg(tab->title()));
 
         set_current_tab(tab);
         if (tab) {
@@ -579,7 +579,7 @@ void BrowserWindow::tab_title_changed(int index, QString const& title)
     m_tabs_container->set_tab_tooltip(index, title);
 
     if (m_tabs_container->current_index() == index)
-        setWindowTitle(QString("%1 - Ladybird").arg(title));
+        setWindowTitle(QString("%1 - KITE").arg(title));
 }
 
 void BrowserWindow::tab_favicon_changed(int index, QIcon const& icon)
