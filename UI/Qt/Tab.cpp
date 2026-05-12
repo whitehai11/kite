@@ -209,7 +209,7 @@ Tab::Tab(BrowserWindow* window, RefPtr<WebView::WebContentClient> parent_client,
     };
 
     view().on_request_alert = [this](auto const& message) {
-        m_dialog = new QMessageBox(QMessageBox::Icon::Warning, "Ladybird", qstring_from_ak_string(message), QMessageBox::StandardButton::Ok, &view());
+        m_dialog = new QMessageBox(QMessageBox::Icon::Warning, "KITE", qstring_from_ak_string(message), QMessageBox::StandardButton::Ok, &view());
 
         QObject::connect(m_dialog, &QDialog::finished, this, [this]() {
             view().alert_closed();
@@ -220,7 +220,7 @@ Tab::Tab(BrowserWindow* window, RefPtr<WebView::WebContentClient> parent_client,
     };
 
     view().on_request_confirm = [this](auto const& message) {
-        m_dialog = new QMessageBox(QMessageBox::Icon::Question, "Ladybird", qstring_from_ak_string(message), QMessageBox::StandardButton::Ok | QMessageBox::StandardButton::Cancel, &view());
+        m_dialog = new QMessageBox(QMessageBox::Icon::Question, "KITE", qstring_from_ak_string(message), QMessageBox::StandardButton::Ok | QMessageBox::StandardButton::Cancel, &view());
 
         QObject::connect(m_dialog, &QDialog::finished, this, [this](auto result) {
             view().confirm_closed(result == QMessageBox::StandardButton::Ok || result == QDialog::Accepted);
@@ -234,7 +234,7 @@ Tab::Tab(BrowserWindow* window, RefPtr<WebView::WebContentClient> parent_client,
         m_dialog = new QInputDialog(&view());
 
         auto& dialog = static_cast<QInputDialog&>(*m_dialog);
-        dialog.setWindowTitle("Ladybird");
+        dialog.setWindowTitle("KITE");
         dialog.setLabelText(qstring_from_ak_string(message));
         dialog.setTextValue(qstring_from_ak_string(default_));
 
@@ -271,7 +271,7 @@ Tab::Tab(BrowserWindow* window, RefPtr<WebView::WebContentClient> parent_client,
         m_dialog = new QColorDialog(QColor(current_color.red(), current_color.green(), current_color.blue()), &view());
 
         auto& dialog = static_cast<QColorDialog&>(*m_dialog);
-        dialog.setWindowTitle("Ladybird");
+        dialog.setWindowTitle("KITE");
         dialog.setOption(QColorDialog::ShowAlphaChannel, false);
         QObject::connect(&dialog, &QColorDialog::currentColorChanged, this, [this](QColor const& color) {
             view().color_picker_update(Color(color.red(), color.green(), color.blue()), Web::HTML::ColorPickerUpdateState::Update);

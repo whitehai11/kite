@@ -29,11 +29,11 @@ if (APPLE AND NOT CMAKE_OSX_SYSROOT)
     set(CMAKE_OSX_SYSROOT macosx)
 endif()
 
-project(ladybird
+project(kite
         VERSION 0.1.0
         LANGUAGES C CXX
-        DESCRIPTION "Ladybird Web Browser"
-        HOMEPAGE_URL "https://ladybird.org"
+        DESCRIPTION "KITE Web Browser"
+        HOMEPAGE_URL "https://github.com/whitehai11/kite"
 )
 
 if (ANDROID OR IOS)
